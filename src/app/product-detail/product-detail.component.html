@@ -1,13 +1,20 @@
-<div class="productitem">
-  <img src="{{ product.url }}" alt="{{ product.name }}" width="100%" />
-  <h3>{{ product.name }}</h3>
-  <p>{{ product.price }} EUR</p>
-  <select id="amount" name="amount">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <button class="button">Add to Cart</button>
+<div class="productdetail">
+  <img
+    src="{{ product.url }}"
+    alt="{{ product.name }}"
+    width="100%"
+    class="productimage"
+  />
+  <div class="productdetails">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price }} EUR</p>
+    <select id="amount" name="amount">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button class="button">Add to Cart</button>
+  </div>
 </div>

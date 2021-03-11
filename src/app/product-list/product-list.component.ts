@@ -25,19 +25,25 @@ export class ProductListComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  loadProductDetails(): void {
+  getParams(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.productId = params['id'];
+      this.getProduct();
+    });
+  }
+
+  getProduct(): void {
     this.productDetail = this.products.filter(
       (product) => product.id == this.productId
     )[0];
   }
 
+  loadProductDetails(): void {}
+
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe((res) => {
       this.products = res;
-    });
-    this.route.queryParams.subscribe((params) => {
-      this.productId = params['id'];
-      this.loadProductDetails();
+      this.getParams();
     });
   }
 }

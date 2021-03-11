@@ -4,3 +4,17 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+button{
+  margin: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: black;
+  color: white
+}
+button:active, :focus{
+  outline: none;
+}
