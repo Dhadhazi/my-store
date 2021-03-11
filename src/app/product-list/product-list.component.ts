@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/models/Product';
 import { ProductsService } from 'src/services/products.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/services/cart.service';
 
 @Component({
@@ -48,6 +48,6 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: Product): void {
-    console.log(product);
+    this.cartService.addToCart(product);
   }
 }
