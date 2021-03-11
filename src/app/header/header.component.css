@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-.header-container > h1 {
+.header-container > a > h1 {
   font-size: 3.3rem;
   margin-bottom: 0;
 }

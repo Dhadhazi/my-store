@@ -1,7 +1,9 @@
 <div class="productitem">
-  <img src="{{ product.url }}" alt="{{ product.name }}" width="100%" />
-  <h3>{{ product.name }}</h3>
-  <p>{{ product.price }}</p>
+  <a [routerLink]="['/products']" [queryParams]="{ id: product.id }">
+    <img src="{{ product.url }}" alt="{{ product.name }}" width="100%" />
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.price }} EUR</p>
+  </a>
   <select id="amount" name="amount">
     <option value="1">1</option>
     <option value="2">2</option>
