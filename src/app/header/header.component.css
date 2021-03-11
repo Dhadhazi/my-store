@@ -1,4 +1,4 @@
-.header-container{ 
+.header{ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,12 +6,27 @@
   flex-direction: column;
 }
 
-.header-container > a > h1 {
+.header > a > h1 {
   font-size: 3.3rem;
   margin-bottom: 0;
 }
 
-.header-container > h2 {
+.header > h2 {
   font-size: 1.2rem;
   margin-top: 0;
+}
+
+.menu {
+  margin: 20px;
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.menu > a{
+  font-size: 1.2rem;
+}
+
+.menu > a:hover{
+  color: grey;
 }
