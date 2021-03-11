@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/models/Product';
 import { ProductsService } from 'src/services/products.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { CartService } from 'src/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -22,8 +23,16 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productsService: ProductsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cartService: CartService
   ) {}
+
+  ngOnInit(): void {
+    this.productsService.getAllProducts().subscribe((res) => {
+      this.products = res;
+      this.getParams();
+    });
+  }
 
   getParams(): void {
     this.route.queryParams.subscribe((params) => {
@@ -38,12 +47,7 @@ export class ProductListComponent implements OnInit {
     )[0];
   }
 
-  loadProductDetails(): void {}
-
-  ngOnInit(): void {
-    this.productsService.getAllProducts().subscribe((res) => {
-      this.products = res;
-      this.getParams();
-    });
+  addToCart(product: Product): void {
+    console.log(product);
   }
 }
