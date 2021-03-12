@@ -14,13 +14,23 @@
     <div class="productcard__price">Total: {{ total }} EUR</div>
   </div>
 
-  <form class="cart__buyform">
+  <form (ngSubmit)="onSubmit()" class="cart__buyform">
     <label for="fullname">Full name</label>
-    <input type="text" id="fullname" />
+    <input
+      type="text"
+      id="fullname"
+      name="fullname"
+      [(ngModel)]="user.fullname"
+    />
     <label for="address">Address</label>
-    <input type="text" id="address" />
+    <input type="text" id="address" name="address" [(ngModel)]="user.address" />
     <label for="ccnumber">Credit Card Number</label>
-    <input type="text" id="ccnumber" />
+    <input
+      type="text"
+      id="ccnumber"
+      name="ccnumber"
+      [(ngModel)]="user.ccnumber"
+    />
     <button type="submit">Submit</button>
   </form>
 </div>

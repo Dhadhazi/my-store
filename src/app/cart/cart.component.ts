@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/models/Product';
+import { User } from 'src/models/User';
 import { CartService } from 'src/services/cart.service';
 
 @Component({
@@ -10,7 +11,14 @@ import { CartService } from 'src/services/cart.service';
 export class CartComponent implements OnInit {
   cart: Product[] = [];
   total: number = 0;
-  constructor(private cartService: CartService) {}
+  user: User;
+  constructor(private cartService: CartService) {
+    this.user = {
+      fullname: '',
+      address: '',
+      ccnumber: '',
+    };
+  }
 
   ngOnInit(): void {
     this.cartService.getCart().subscribe((cart) => {
@@ -20,5 +28,9 @@ export class CartComponent implements OnInit {
         0
       );
     });
+  }
+
+  onSubmit() {
+    console.log(this.user);
   }
 }
