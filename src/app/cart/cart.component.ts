@@ -28,6 +28,8 @@ export class CartComponent implements OnInit {
   }
 
   countTotal() {
+    this.cart = this.cart.filter((prod) => Number(prod.quantity) !== 0);
+    console.log(this.cart);
     this.total = this.cart.reduce(
       (acc, prod) => (acc += prod.price * (prod.quantity || 1)),
       0
