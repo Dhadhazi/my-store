@@ -14,6 +14,10 @@ export class CartService {
     this.cart.push(product);
   }
 
+  emptyCart() {
+    this.cart = [];
+  }
+
   getCart(): Observable<Product[]> {
     const cart = of(this.cart);
     return cart;

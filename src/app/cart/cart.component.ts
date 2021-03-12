@@ -38,9 +38,8 @@ export class CartComponent implements OnInit {
     this.total = Math.round(this.total * 100) / 100;
   }
 
-  onSubmit() {}
-
-  disableShowConfirmation() {
-    this.showConfirmation = false;
+  onSubmit() {
+    this.cartService.emptyCart();
+    this.showConfirmation = true;
   }
 }
