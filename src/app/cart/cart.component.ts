@@ -12,6 +12,8 @@ export class CartComponent implements OnInit {
   cart: Product[] = [];
   total: number = 0;
   user: User;
+  showConfirmation: boolean = false;
+
   constructor(private cartService: CartService) {
     this.user = {
       fullname: '',
@@ -29,7 +31,6 @@ export class CartComponent implements OnInit {
 
   countTotal() {
     this.cart = this.cart.filter((prod) => Number(prod.quantity) !== 0);
-    console.log(this.cart);
     this.total = this.cart.reduce(
       (acc, prod) => (acc += prod.price * (prod.quantity || 1)),
       0
@@ -37,7 +38,9 @@ export class CartComponent implements OnInit {
     this.total = Math.round(this.total * 100) / 100;
   }
 
-  onSubmit() {
-    console.log(this.user);
+  onSubmit() {}
+
+  disableShowConfirmation() {
+    this.showConfirmation = false;
   }
 }
