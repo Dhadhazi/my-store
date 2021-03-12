@@ -43,6 +43,7 @@
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  margin: 10px 0;
 }
 
 .productcard > img {
@@ -69,4 +70,9 @@
 .productcard__details--price > input{
   width: 50px;
   font-size: 1rem;
+}
+
+.productcard__price{
+  font-size: 1.2rem;
+  margin-top: 20px;
 }
