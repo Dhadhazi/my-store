@@ -4,14 +4,12 @@
     <h3>{{ product.name }}</h3>
     <p>{{ product.price }} EUR</p>
   </a>
-  <form #f="ngForm" (ngSubmit)="submitForm()">
-    <select id="amount" name="amount" [(ngModel)]="quantity">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <button class="button" type="submit">Add to Cart</button>
-  </form>
+  <select id="amount" name="amount" [(ngModel)]="quantity">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <button class="button" (click)="submitToCart()">Add to Cart</button>
 </div>

@@ -23,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submitForm(): void {
+  submitToCart(): void {
     this.product.quantity = Number(this.quantity);
     this.addToCart.emit(this.product);
   }
