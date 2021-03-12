@@ -29,7 +29,7 @@
 .cart__buyform > input {
   height: 20px;
   width: 250px;
-  margin-bottom: 15px;
+  margin-top: 10px 0;
 }
 
 .cart__buyform > button {
@@ -37,6 +37,16 @@
   margin: 0;
   width: 150px;
 }
+
+.cart__buyform--errormsg{
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.error{
+  border: 2px solid red;
+}
+
 
 
 .productcard{

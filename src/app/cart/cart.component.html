@@ -14,23 +14,79 @@
     <div class="productcard__price">Total: {{ total }} EUR</div>
   </div>
 
-  <form (ngSubmit)="onSubmit()" class="cart__buyform">
+  <form #form="ngForm" (ngSubmit)="onSubmit()" class="cart__buyform">
     <label for="fullname">Full name</label>
     <input
       type="text"
       id="fullname"
       name="fullname"
       [(ngModel)]="user.fullname"
+      [ngClass]="
+        fullName.invalid && fullName.dirty && fullName.errors ? 'error' : ''
+      "
+      required
+      minlength="6"
+      #fullName="ngModel"
     />
+    <div
+      *ngIf="fullName.invalid && fullName.dirty && fullName.errors"
+      class="cart__buyform--errormsg"
+    >
+      <div *ngIf="fullName.errors.required">Please provide your full name</div>
+      <div *ngIf="fullName.errors.minlength">
+        Your name should be more than 6 characters...
+      </div>
+    </div>
     <label for="address">Address</label>
-    <input type="text" id="address" name="address" [(ngModel)]="user.address" />
+    <input
+      type="text"
+      id="address"
+      name="address"
+      [(ngModel)]="user.address"
+      required
+      minlength="10"
+      #address="ngModel"
+      [ngClass]="
+        address.invalid && address.dirty && address.errors ? 'error' : ''
+      "
+    />
+    <div
+      *ngIf="address.invalid && address.dirty && address.errors"
+      class="cart__buyform--errormsg"
+    >
+      <div *ngIf="address.errors.required">
+        Please provide your full address
+      </div>
+      <div *ngIf="address.errors.minlength">
+        Your address must be at least 10 characters
+      </div>
+    </div>
     <label for="ccnumber">Credit Card Number</label>
     <input
       type="text"
       id="ccnumber"
       name="ccnumber"
       [(ngModel)]="user.ccnumber"
+      required
+      minlength="10"
+      #ccnumber="ngModel"
+      [ngClass]="
+        ccnumber.invalid && ccnumber.dirty && ccnumber.errors ? 'error' : ''
+      "
     />
-    <button type="submit">Submit</button>
+    <div
+      *ngIf="ccnumber.invalid && ccnumber.dirty && ccnumber.errors"
+      class="cart__buyform--errormsg"
+    >
+      <div *ngIf="ccnumber.errors.required">
+        Please provide your Credit Card number
+      </div>
+      <div *ngIf="ccnumber.errors.minlength">
+        Your Credit Card number must be at least 10 characters
+      </div>
+    </div>
+    <button type="submit" [disabled]="form.invalid || cart.length === 0">
+      Submit
+    </button>
   </form>
 </div>
