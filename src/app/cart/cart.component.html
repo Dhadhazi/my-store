@@ -1,5 +1,6 @@
 <div class="cart">
-  <div class="cart__products">
+  <div *ngIf="cart.length === 0" class="cart__products">Your cart is empty</div>
+  <div *ngIf="cart.length > 0" class="cart__products">
     <div *ngFor="let product of cart" class="productcard">
       <img src="{{ product.url }}" alt="" />
       <div class="productcard__details">
