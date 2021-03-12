@@ -7,7 +7,13 @@
         <h4>{{ product.name }}</h4>
         <div>{{ product.price }} EUR</div>
         <div class="productcard__details--price">
-          Amount: <input type="text" value="{{ product.quantity }}" />
+          Amount:
+          <input
+            type="text"
+            value="{{ product.quantity }}"
+            [(ngModel)]="product.quantity"
+            (ngModelChange)="countTotal()"
+          />
         </div>
       </div>
     </div>

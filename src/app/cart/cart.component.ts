@@ -23,11 +23,16 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getCart().subscribe((cart) => {
       this.cart = cart;
-      this.total = cart.reduce(
-        (acc, prod) => prod.price * (prod.quantity || 1),
-        0
-      );
+      this.countTotal();
     });
+  }
+
+  countTotal() {
+    this.total = this.cart.reduce(
+      (acc, prod) => (acc += prod.price * (prod.quantity || 1)),
+      0
+    );
+    this.total = Math.round(this.total * 100) / 100;
   }
 
   onSubmit() {
